@@ -1,22 +1,22 @@
-data= {}
+details= {}
 
-def register(username, password):
-    if username in data:
+def register(usr, paswrd):
+    if usr in details:
         print("Username already taken.")
     else:
-        data[username] = password
+        details[usr] = paswrd
         print("Registration successful!")
 
-def login(username, password):
-    if username in data and data[username] == password:
+def login(usr, paswrd):
+    if usr in details and details[usr] == paswrd:
         print("Login successful!")
         return True
     else:
         print("Login failed,Try again!")
         return False
 
-def secured_page(username):
-    print(f"Welcome to the secured page, {username}!")
+def secured_page(usr):
+    print(f"Welcome to the secured page, {usr}!")
 
 def main():
     while True:
@@ -26,18 +26,18 @@ def main():
         option= input("Enter your choice: ")
 
         if option == '1':
-            username = input("Enter a username: ")
-            password = input("Enter a password: ")
-            register(username, password)
+            usr = input("Enter a username: ")
+            paswrd = input("Enter a password: ")
+            register(usr, paswrd)
         elif option == '2':
-            username = input("Enter your username: ")
-            password = input("Enter your password: ")
-            if login(username, password):
-                secured_page(username)
+            usr = input("Enter your username: ")
+            paswrd= input("Enter your password: ")
+            if login(usr, paswrd):
+                secured_page(usr)
         elif option == '3':
             print("Exit")
             break
         else:
             print("Invalid choice. Please select a valid option.")
-if__name__=="__main__":
+if __name__ == "__main__":
     main()
